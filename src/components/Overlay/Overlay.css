@@ -1,0 +1,27 @@
+.darken {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  background: #0000009e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  background: #fff;
+  width: 50%;
+  margin: 50px auto;
+  padding: 50px;
+  border-radius: 13px;
+  box-shadow: 1px 1px 20px 0px #00000026;
+  display: flex;
+  justify-content: center;
+}
+.closer {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #258aff;
+}

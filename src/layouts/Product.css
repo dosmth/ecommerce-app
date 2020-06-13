@@ -1,0 +1,26 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.title {
+  font-size: 48px;
+  font-weight: bold;
+}
+.grid {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+@media (max-width: 1440px) {
+  .container {
+    width: 95%;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    flex-flow: column;
+    align-items: center;
+  }
+}

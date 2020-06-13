@@ -1,0 +1,98 @@
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.card {
+  margin-left: 0px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 5px;
+  /* box-shadow: 2px 2px 6px #6491ffa1; */
+}
+.category {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #a2a2a2;
+  cursor: pointer;
+  font-style: italic;
+  transition: color 0.2s linear;
+}
+.category:hover {
+  color: #25aaff;
+}
+.title {
+  font-size: 48px;
+  font-weight: bold;
+}
+/* .img {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.img > img {
+  max-width: 500px;
+  border-radius: 5px;
+  box-shadow: 2px 1px 20px #b3b3b3;
+} */
+.bgImgContainer {
+  width: 500px;
+  height: 500px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 2px 1px 20px #b3b3b3;
+}
+.bgImg {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+.price {
+  font-size: 36px;
+  font-weight: bold;
+}
+.descr {
+  line-height: 24px;
+}
+@media (max-width: 1024px) {
+  .card {
+    padding: 20px;
+  }
+  /* .img > img {
+    max-width: 300px;
+  } */
+  .bgImgContainer {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 98%;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .card {
+    /* box-shadow: none; */
+    padding: 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .bgImgContainer {
+    width: 250px;
+    height: 250px;
+  }
+}
+@media (max-width: 425px) {
+  .img > img {
+    max-width: 250px;
+  }
+}

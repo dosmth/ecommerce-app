@@ -1,0 +1,48 @@
+.container {
+  width: 350px;
+  background: #fff;
+  box-shadow: 2px 2px 6px #00000052;
+  border-radius: 5px;
+}
+.title {
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  background: #258aff;
+  color: #fff;
+}
+.userPic {
+  text-align: center;
+}
+.userPic > img {
+  margin-top: 15px;
+  border: 1px solid #2591ff;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+}
+.listItem {
+  padding-left: 15px;
+  padding-right: 15px;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.1s ease-out;
+}
+.listItem:last-child {
+  border-radius: 0 0 5px 5px;
+}
+.listItem:hover {
+  background: #a6cfff;
+}
+
+@media (max-width: 425px) {
+  .container {
+    width: 300px;
+  }
+}

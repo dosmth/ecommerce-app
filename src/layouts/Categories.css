@@ -1,0 +1,27 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.content {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (max-width: 1200px) {
+  .container {
+    width: 90%;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    flex-flow: column;
+    align-items: center;
+  }
+  .content {
+    margin-top: 50px;
+  }
+}
