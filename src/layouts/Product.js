@@ -53,7 +53,7 @@ export default function Product(props) {
         ) : (
           ""
         )}
-        {!isLoading && product.id ? (
+        {!isLoading && typeof product.id !== "undefined" ? (
           <ProductInfo
             title={product.title}
             img={product.img}
