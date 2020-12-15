@@ -9,8 +9,10 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
-        loader: "babel-loader",
-        options: { presets: ["@babel/env"] }
+        use: [{
+          loader: 'babel-loader',
+          options: { presets: ["@babel/env"] }
+        }]
       },
       {
         test: /\.(css|scss)$/,
@@ -40,10 +42,13 @@ module.exports = {
       },
       {
         test: /\.(jpg|png|svg)$/,
-        loader: "url-loader",
-        options: {
-          limit: 25000
-        }
+        use: [{
+          loader: 'url-loader',
+
+          options: {
+            limit: 25000
+          }
+        }]
       }
     ]
   },
