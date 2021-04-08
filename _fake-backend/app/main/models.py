@@ -20,7 +20,7 @@ class Category(db.Model):
         return Product.query.filter((Product.category_id == self.id)).all()
 
 
-class CategorySchema(ma.ModelSchema):
+class CategorySchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Category
 
@@ -45,7 +45,7 @@ class User(db.Model):
         return Product.query.filter((Product.user_id == self.id)).all()
 
 
-class UserSchema(ma.ModelSchema):
+class UserSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = User
 
@@ -72,9 +72,10 @@ class Product(db.Model):
         return f"Product('{self.id}', '{self.title}')"
 
 
-class ProductSchema(ma.ModelSchema):
+class ProductSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Product
+        include_fk = True
 
 
 product_schema = ProductSchema()

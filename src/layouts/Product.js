@@ -34,11 +34,11 @@ export default function Product(props) {
 
   // получаем информацию о категории товара
   useEffect(() => {
-    if (product.category) {
-      dispatch(getCategory(product.category));
+    if (product.category_id) {
+      dispatch(getCategory(product.category_id));
     }
     return () => {};
-  }, [product.category]);
+  }, [product.category_id]);
   const { category } = useSelector((state) => state.categories);
 
   return (
@@ -48,8 +48,8 @@ export default function Product(props) {
         {isError ? "😥 " + errorMessage : ""}
       </div>
       <div className={styles.grid}>
-        {!isLoading && product.user ? (
-          <UserContacts userId={product.user} />
+        {!isLoading && product.user_id ? (
+          <UserContacts userId={product.user_id} />
         ) : (
           ""
         )}
