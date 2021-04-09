@@ -24,4 +24,7 @@
   text-decoration: underline;
   cursor: pointer;
   color: #258aff;
+  background: none;
+  border: none;
+  padding: 0;
 }

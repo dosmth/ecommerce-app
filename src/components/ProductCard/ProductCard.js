@@ -15,7 +15,7 @@ export default function ProductCard(props) {
   let price = props.price;
 
   return (
-    <div
+    <a
       className={styles.card}
       key={id}
       onClick={() => {
@@ -32,6 +32,6 @@ export default function ProductCard(props) {
         <div className={styles.title}>{title}</div>
         <div className={styles.price}>{prettyPrice(price)}р.</div>
       </div>
-    </div>
+    </a>
   );
 }

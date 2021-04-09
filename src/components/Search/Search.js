@@ -9,10 +9,10 @@ export default function Search() {
   return (
     <div className={styles.searchHolder}>
       <input type="text" placeholder="Поиск" />
-      <div
+      <button
         className={styles.searchIcon}
         onClick={() => setShowModal(true)}
-      ></div>
+      ></button>
       {showModal && (
         <Overlay
           closeModal={() => setShowModal(false)}

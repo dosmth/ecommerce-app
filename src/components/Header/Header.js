@@ -29,7 +29,7 @@ export default function Header() {
   return (
     <header ref={sticky}>
       <div className={styles.container}>
-        <div
+        <a
           className={styles.title}
           onClick={() => {
             history.push("/");
@@ -37,7 +37,7 @@ export default function Header() {
           }}
         >
           eCommerce App
-        </div>
+        </a>
         <Search />
       </div>
     </header>

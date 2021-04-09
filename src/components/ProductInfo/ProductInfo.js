@@ -15,7 +15,7 @@ export default function ProductInfo(props) {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <div
+        <a
           className={styles.category}
           onClick={() => {
             history.push("/category/" + categoryUrl);
@@ -23,7 +23,7 @@ export default function ProductInfo(props) {
           }}
         >
           {categoryTitle} /
-        </div>
+        </a>
         <div className={styles.title}>{title}</div>
         {/* <div className={styles.img}>
           <img src={img_url} />

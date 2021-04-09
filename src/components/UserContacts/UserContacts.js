@@ -34,7 +34,7 @@ export default function UserContacts(props) {
         />
       </div>
       <div className={styles.list}>
-        <div
+        <a
           className={styles.listItem}
           onClick={() => {
             history.push("/user/" + user.id);
@@ -42,15 +42,15 @@ export default function UserContacts(props) {
           }}
         >
           {user.name}
-        </div>
-        <div
+        </a>
+        <a
           className={styles.listItem}
           onClick={() => {
             window.location.href = "tel:" + user.phone;
           }}
         >
           {user.phone}
-        </div>
+        </a>
         <div className={styles.listItem}>{user.addr}</div>
       </div>
     </div>

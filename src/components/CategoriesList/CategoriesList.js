@@ -27,7 +27,7 @@ export default function CategoriesList(props) {
   // генерим список категорий
   let data = Array.isArray(categories) ? categories : [];
   const Items = data.map((d) => (
-    <div
+    <a
       className={
         d.id == activeId
           ? styles.listItem + " " + styles.active
@@ -40,7 +40,7 @@ export default function CategoriesList(props) {
       }}
     >
       {d.title}
-    </div>
+    </a>
   ));
 
   return (

@@ -48,9 +48,9 @@ export default function Overlay(props) {
       <div className={styles.card} ref={modal}>
         <div>
           <p>{props.text}</p>
-          <p className={styles.closer} onClick={() => props.closeModal()}>
+          <button className={styles.closer} onClick={() => props.closeModal()}>
             Закрыть
-          </p>
+          </button>
           <p>Также можно закрыть на esc и на клик по внешней области</p>
         </div>
       </div>
