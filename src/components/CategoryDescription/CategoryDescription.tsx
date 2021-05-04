@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import styles from "./CategoryDescription.css";
+import * as React from "react";
+// import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../../redux/hooks";
+import styles from "./CategoryDescription.module.css";
 
 export default function CategoryDescription() {
   const {
@@ -8,7 +9,7 @@ export default function CategoryDescription() {
     isLoadingCategory,
     isErrorCategory,
     errorMessage,
-  } = useSelector((state) => state.categories);
+  } = useAppSelector((state) => state.categories);
 
   return (
     <div className={styles.title}>
