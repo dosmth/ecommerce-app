@@ -1,18 +1,24 @@
-import React, { useEffect } from "react";
+import * as React from "react";
+import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { getUser } from "../../redux/actions/users";
-import styles from "./UserContacts.css";
+import styles from "./UserContacts.module.css";
 
-export default function UserContacts(props) {
+type Props = {
+  userId: number;
+};
+
+export default function UserContacts(props: Props) {
   let history = useHistory();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getUser(props.userId));
     return () => {};
   }, []);
 
-  const { user, isLoadingUser, isErrorUser, errorMessage } = useSelector(
+  const { user, isLoadingUser, isErrorUser, errorMessage } = useAppSelector(
     (state) => state.users
   );
 
