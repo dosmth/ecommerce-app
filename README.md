@@ -8,13 +8,15 @@ Simple ecommerce web app with products, categories and users
 
 Frontend:
 
-1. React
+1. TypeScript
 
-2. Redux
+2. React
 
-3. React-router
+3. Redux
 
-4. PostCSS
+4. React-router
+
+5. PostCSS
 
 Fake backend:
 

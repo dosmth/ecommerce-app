@@ -2,22 +2,29 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/index.tsx",
   mode: "development",
   module: {
     rules: [
       {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
+      {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
-        use: [{
-          loader: 'babel-loader',
-          options: { presets: ["@babel/env"] }
-        }]
+        use: [
+          {
+            loader: "babel-loader",
+            options: { presets: ["@babel/env"] },
+          },
+        ],
       },
       {
         test: /\.(css|scss)$/,
         exclude: /(src)/,
-        use: ["style-loader", "css-loader"]
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.(css|scss)$/,
@@ -33,37 +40,39 @@ module.exports = {
               modules: {
                 mode: "local",
                 localIdentName: "[path][name]__[local]--[hash:base64:5]",
-                localIdentHashPrefix: "my-custom-hash"
-              }
-            }
+                localIdentHashPrefix: "my-custom-hash",
+              },
+            },
           },
-          "postcss-loader"
-        ]
+          "postcss-loader",
+        ],
       },
       {
         test: /\.(jpg|png|svg)$/,
-        use: [{
-          loader: 'url-loader',
+        use: [
+          {
+            loader: "url-loader",
 
-          options: {
-            limit: 25000
-          }
-        }]
-      }
-    ]
+            options: {
+              limit: 25000,
+            },
+          },
+        ],
+      },
+    ],
   },
-  resolve: { extensions: ["*", ".js", ".jsx"] },
+  resolve: { extensions: ["*", ".ts", ".tsx", ".js", ".jsx"] },
   output: {
     path: path.resolve(__dirname, "dist/"),
     publicPath: "/dist/",
-    filename: "bundle.js"
+    filename: "bundle.js",
   },
   devServer: {
     contentBase: path.join(__dirname, "public/"),
     port: 3000,
     publicPath: "http://localhost:3000/dist/",
     hotOnly: true,
-    historyApiFallback: true
+    historyApiFallback: true,
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [new webpack.HotModuleReplacementPlugin()],
 };
