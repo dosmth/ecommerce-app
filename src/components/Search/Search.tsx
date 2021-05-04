@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import styles from "./Search.css";
+import * as React from "react";
+import { useState } from "react";
+import styles from "./Search.module.css";
 
 import Overlay from "../Overlay/Overlay";
 
