@@ -1,17 +1,24 @@
-import React, { useEffect, useRef } from "react";
-import styles from "./Overlay.css";
+import * as React from "react";
+import { useEffect, useRef } from "react";
+import styles from "./Overlay.module.css";
 
-export default function Overlay(props) {
+type Props = {
+  closeModal: Function;
+  text: string;
+};
+
+export default function Overlay(props: Props) {
   const modal = useRef(null);
 
   // закрываем при клике на внешнюю область
-  function handleOutsideClick(e) {
-    function isNil(value) {
-      return value == null;
-    }
-    console.log(modal);
+  function handleOutsideClick(e: Event) {
+    // function isNil(value) {
+    //   return value == null;
+    // }
+    // console.log(modal);
 
-    if (!isNil(modal)) {
+    // if (!isNil(modal)) {
+    if (modal) {
       if (!modal.current.contains(e.target)) {
         props.closeModal();
         document.removeEventListener("click", handleOutsideClick, false);
@@ -20,17 +27,13 @@ export default function Overlay(props) {
   }
 
   // закрываем на esc
-  function handleKeyUp(e) {
-    const keys = {
-      27: () => {
-        e.preventDefault();
-        props.closeModal();
-        window.removeEventListener("keyup", handleKeyUp, false);
-      },
-    };
-
-    if (keys[e.keyCode]) {
-      keys[e.keyCode]();
+  function handleKeyUp(e: KeyboardEvent) {
+    let key = e.key || e.keyCode;
+    console.log(key);
+    if (key == "Escape" || key == 27) {
+      e.preventDefault();
+      props.closeModal();
+      window.removeEventListener("keyup", handleKeyUp, false);
     }
   }
 
