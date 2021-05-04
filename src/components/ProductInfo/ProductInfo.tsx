@@ -1,9 +1,18 @@
-import React, { useEffect, useState } from "react";
+import * as React from "react";
 import { useParams, useHistory } from "react-router-dom";
-import styles from "./ProductInfo.css";
+import styles from "./ProductInfo.module.css";
 import prettyPrice from "../../common/prettyPrice";
 
-export default function ProductInfo(props) {
+type Props = {
+  title: string;
+  img: string;
+  price: number;
+  descr: string;
+  categoryTitle: string;
+  categoryUrl: string;
+};
+
+export default function ProductInfo(props: Props) {
   let history = useHistory();
 
   const { title, img, price, descr, categoryTitle, categoryUrl } = props;
