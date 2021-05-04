@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import * as React from "react";
+import { useEffect } from "react";
+// import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { getProducts } from "../../redux/actions/products";
-import styles from "./ProductsByCategory.css";
+import styles from "./ProductsByCategory.module.css";
 
 import ProductsGrid from "../ProductsGrid/ProductsGrid";
 
 export default function ProductsByCategory() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   // получаем текущую категорию
-  const { category } = useSelector((state) => state.categories);
+  const { category } = useAppSelector((state) => state.categories);
   let categoryId = category.id;
   // получаем товары для текущей категории
   useEffect(() => {
@@ -18,7 +20,7 @@ export default function ProductsByCategory() {
     return () => {};
   }, [categoryId]);
 
-  const { products_by_category, isLoading, isError } = useSelector(
+  const { products_by_category, isLoading, isError } = useAppSelector(
     (state) => state.products
   );
 

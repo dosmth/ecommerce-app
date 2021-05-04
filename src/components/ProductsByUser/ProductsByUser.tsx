@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import * as React from "react";
+// import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 
 import ProductsGrid from "../ProductsGrid/ProductsGrid";
 
-import styles from "./ProductsByUser.css";
+import styles from "./ProductsByUser.module.css";
 
 export default function ProductsByUser() {
-  const { products_by_user, isLoading, isError } = useSelector(
+  const { products_by_user, isLoading, isError } = useAppSelector(
     (state) => state.products
   );
 
