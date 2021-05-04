@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import * as React from "react";
+import { useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
-import styles from "./Header.css";
+import styles from "./Header.module.css";
 
 import Search from "../Search/Search";
 
