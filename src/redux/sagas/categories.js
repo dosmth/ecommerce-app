@@ -5,7 +5,7 @@ import {
   api_get_all,
   api_get_one,
   api_get_one_by_url,
-} from "../../api/categories.js";
+} from "../../api/categories";
 
 function* getCategories() {
   try {

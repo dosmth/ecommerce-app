@@ -1,7 +1,7 @@
 import "regenerator-runtime/runtime";
 import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
 
-import { api_get_all, api_get_one } from "../../api/users.js";
+import { api_get_all, api_get_one } from "../../api/users";
 
 function* getUsers() {
   try {

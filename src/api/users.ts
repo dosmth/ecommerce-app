@@ -1,8 +1,8 @@
 /*
 API запросы для пользователей
 */
-import { API } from "../API.js";
-import { getRequest } from "./common.js";
+import { API } from "../API";
+import { getRequest } from "./common";
 
 const fetchUrl = API + "user/";
 
@@ -12,6 +12,6 @@ export const api_get_all = () => {
 };
 
 // получаем пользователя
-export const api_get_one = (id) => {
-  return getRequest(fetchUrl + id, "GET");
+export const api_get_one = (id: number) => {
+  return getRequest(fetchUrl + id);
 };

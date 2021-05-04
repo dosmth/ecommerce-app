@@ -5,7 +5,7 @@ import {
   api_get_by_category,
   api_get_by_user,
   api_get_one,
-} from "../../api/products.js";
+} from "../../api/products";
 
 function* getProductsByCategory(action) {
   try {

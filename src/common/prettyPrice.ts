@@ -1,4 +1,4 @@
-export default function prettyPrice(price) {
+export default function prettyPrice(price: number): string {
   const separator = " ";
   return price
     .toString()
