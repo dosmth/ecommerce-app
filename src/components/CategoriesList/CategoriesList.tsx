@@ -1,13 +1,15 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import * as React from "react";
+import { useEffect } from "react";
+// import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { useHistory } from "react-router-dom";
 import { getCategories } from "../../redux/actions/categories";
 
-import styles from "./CategoriesList.css";
+import styles from "./CategoriesList.module.css";
 
-export default function CategoriesList(props) {
+export default function CategoriesList() {
   // получаем все категории
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getCategories());
     return () => {};
@@ -17,11 +19,11 @@ export default function CategoriesList(props) {
     isLoadingCategories,
     isErrorCategories,
     errorMessage,
-  } = useSelector((state) => state.categories);
+  } = useAppSelector((state) => state.categories);
 
   // делаем необходимое для выделения текущей категории
   let history = useHistory();
-  const { id } = useSelector((state) => state.categories.category);
+  const { id } = useAppSelector((state) => state.categories.category);
   let activeId = id;
 
   // генерим список категорий
