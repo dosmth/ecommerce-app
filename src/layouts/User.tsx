@@ -1,17 +1,23 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import * as React from "react";
+import { useEffect } from "react";
+// import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { useParams } from "react-router-dom";
 import { getProductsByUser } from "../redux/actions/products";
 
 import UserContacts from "../components/UserContacts/UserContacts";
 import ProductsByUser from "../components/ProductsByUser/ProductsByUser";
 
-import styles from "./User.css";
+import styles from "./User.module.css";
+
+interface ParamTypes {
+  id: string;
+}
 
 export default function UserProducts() {
   // получаем инфомрацию о пользователе
-  let userId = useParams().id;
-  const dispatch = useDispatch();
+  let userId = Number(useParams<ParamTypes>().id);
+  const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getProductsByUser(userId));
     return () => {};

@@ -1,23 +1,29 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import * as React from "react";
+import { useEffect, useState } from "react";
+// import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { useParams, useHistory } from "react-router-dom";
 import { getProduct } from "../redux/actions/products";
 // import { api_get_url_by_id } from "../api/categories";
 import { getCategory } from "../redux/actions/categories";
-import styles from "./Product.css";
+import styles from "./Product.module.css";
 import ProductInfo from "../components/ProductInfo/ProductInfo";
 import UserContacts from "../components/UserContacts/UserContacts";
 
-export default function Product(props) {
+interface ParamTypes {
+  id: string;
+}
+
+export default function Product() {
   // получаем данные о товаре
-  let productId = useParams().id;
-  const dispatch = useDispatch();
+  let productId = Number(useParams<ParamTypes>().id);
+  const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getProduct(productId));
     return () => {};
   }, [productId]);
 
-  const { product, isLoading, isError, errorMessage } = useSelector(
+  const { product, isLoading, isError, errorMessage } = useAppSelector(
     (state) => state.products
   );
 
@@ -39,7 +45,7 @@ export default function Product(props) {
     }
     return () => {};
   }, [product.category_id]);
-  const { category } = useSelector((state) => state.categories);
+  const { category } = useAppSelector((state) => state.categories);
 
   return (
     <div className={styles.container}>
