@@ -1,3 +1,4 @@
+import { AnyAction } from "redux"; // for TS
 import {
   GET_USERS,
   USERS_FETCHED,
@@ -7,7 +8,33 @@ import {
   USER_ERRORED,
 } from "../constants/action-types";
 
-const initialState = {
+interface initialState {
+  isLoadingUsers: boolean;
+  isLoadingUser: boolean;
+
+  isErrorUsers: boolean;
+  isErrorUser: boolean;
+  errorMessage: string;
+
+  users: {
+    name: string;
+    img: string;
+    addr: string;
+    id: number;
+    phone: string;
+  }[];
+  user:
+    | {
+        name: string;
+        img: string;
+        addr: string;
+        id: number;
+        phone: string;
+      }
+    | {};
+}
+
+const initialState: initialState = {
   isLoadingUsers: false,
   isLoadingUser: false,
 
@@ -19,7 +46,7 @@ const initialState = {
   user: {},
 };
 
-function usersReducer(state = initialState, action) {
+function usersReducer(state = initialState, action: AnyAction) {
   switch (action.type) {
     case GET_USERS:
       return Object.assign({}, state, {

@@ -1,3 +1,4 @@
+import { AnyAction } from "redux"; // for TS
 import {
   GET_PRODUCTS_BY_CATEGORY,
   PRODUCTS_BY_CATEGORY_FETCHED,
@@ -10,7 +11,40 @@ import {
   PRODUCT_ERRORED,
 } from "../constants/action-types";
 
-const initialState = {
+interface initialState {
+  isError: boolean;
+  errorMessage: string;
+  isLoading: boolean;
+  products_by_category: {
+    id: number;
+    category_id: number;
+    title: string;
+    img: string;
+    price: number;
+  }[];
+  products_by_user: {
+    id: number;
+    category_id: number;
+    user_id: number;
+    title: string;
+    img: string;
+    price: number;
+    descr: string;
+  }[];
+  product:
+    | {
+        id: number;
+        category_id: number;
+        user_id: number;
+        title: string;
+        img: string;
+        price: number;
+        descr: string;
+      }
+    | {};
+}
+
+const initialState: initialState = {
   isError: false,
   errorMessage: "",
   isLoading: false,
@@ -19,7 +53,7 @@ const initialState = {
   product: {},
 };
 
-function productsReducer(state = initialState, action) {
+function productsReducer(state = initialState, action: AnyAction) {
   switch (action.type) {
     case GET_PRODUCTS_BY_CATEGORY:
       return Object.assign({}, state, {

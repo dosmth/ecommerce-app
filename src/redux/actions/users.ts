@@ -13,20 +13,34 @@ import {
 export function getUsers() {
   return { type: GET_USERS };
 }
-export function usersFetched(payload) {
+export function usersFetched(
+  payload: {
+    name: string;
+    img: string;
+    addr: string;
+    id: number;
+    phone: string;
+  }[]
+) {
   return { type: USERS_FETCHED, payload: { payload } };
 }
-export function usersErrored(payload) {
+export function usersErrored(payload: string) {
   return { type: USERS_ERRORED, payload: { payload } };
 }
 
 // получить одного пользователя
-export function getUser(id) {
+export function getUser(id: number) {
   return { type: GET_USER, payload: { id } };
 }
-export function userFetched(payload) {
+export function userFetched(payload: {
+  name: string;
+  img: string;
+  addr: string;
+  id: number;
+  phone: string;
+}) {
   return { type: USER_FETCHED, payload: { payload } };
 }
-export function userErrored(payload) {
+export function userErrored(payload: string) {
   return { type: USER_ERRORED, payload: { payload } };
 }

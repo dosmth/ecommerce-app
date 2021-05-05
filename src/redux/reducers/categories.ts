@@ -1,3 +1,4 @@
+import { AnyAction } from "redux"; // for TS
 import {
   GET_CATEGORIES,
   CATEGORIES_FETCHED,
@@ -8,7 +9,19 @@ import {
   CATEGORY_ERRORED,
 } from "../constants/action-types";
 
-const initialState = {
+interface initialState {
+  isLoadingCategories: boolean;
+  isLoadingCategory: boolean;
+
+  isErrorCategories: boolean;
+  isErrorCategory: boolean;
+  errorMessage: string;
+
+  categories: { id: number; title: string; url: string }[];
+  category: { id: number; title: string; url: string } | {};
+}
+
+const initialState: initialState = {
   isLoadingCategories: false,
   isLoadingCategory: false,
 
@@ -20,7 +33,7 @@ const initialState = {
   category: {},
 };
 
-function categoriesReducer(state = initialState, action) {
+function categoriesReducer(state = initialState, action: AnyAction) {
   switch (action.type) {
     case GET_CATEGORIES:
       return Object.assign({}, state, {

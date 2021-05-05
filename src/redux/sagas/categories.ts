@@ -1,3 +1,4 @@
+import { AnyAction } from "redux"; // for TS
 import "regenerator-runtime/runtime";
 import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
 
@@ -7,7 +8,7 @@ import {
   api_get_one_by_url,
 } from "../../api/categories";
 
-function* getCategories() {
+function* getCategories(): Generator {
   try {
     const categories = yield call(api_get_all);
     yield put({ type: "CATEGORIES_FETCHED", payload: categories });
@@ -16,7 +17,7 @@ function* getCategories() {
   }
 }
 
-function* getCategory(action) {
+function* getCategory(action: AnyAction): Generator {
   try {
     const category = yield call(api_get_one, action.payload.id);
     yield put({ type: "CATEGORY_FETCHED", payload: category });
@@ -25,7 +26,7 @@ function* getCategory(action) {
   }
 }
 
-function* getCategoryByUrl(action) {
+function* getCategoryByUrl(action: AnyAction): Generator {
   try {
     const category = yield call(api_get_one_by_url, action.payload.url);
     yield put({ type: "CATEGORY_FETCHED", payload: category });

@@ -1,3 +1,4 @@
+import { AnyAction } from "redux"; // for TS
 import "regenerator-runtime/runtime";
 import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
 
@@ -7,7 +8,7 @@ import {
   api_get_one,
 } from "../../api/products";
 
-function* getProductsByCategory(action) {
+function* getProductsByCategory(action: AnyAction): Generator {
   try {
     const products = yield call(
       api_get_by_category,
@@ -19,7 +20,7 @@ function* getProductsByCategory(action) {
   }
 }
 
-function* getProductsByUser(action) {
+function* getProductsByUser(action: AnyAction): Generator {
   try {
     const products = yield call(api_get_by_user, action.payload.user_id);
     yield put({ type: "PRODUCTS_BY_USER_FETCHED", payload: products });
@@ -28,7 +29,7 @@ function* getProductsByUser(action) {
   }
 }
 
-function* getProduct(action) {
+function* getProduct(action: AnyAction): Generator {
   try {
     const product = yield call(api_get_one, action.payload.id);
     yield put({ type: "PRODUCT_FETCHED", payload: product });
